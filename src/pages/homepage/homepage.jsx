@@ -5,6 +5,8 @@ import Timer from '../../components/timer/timer';
 import {TaskComponent}from '../../components/task/task.component';
 import {updateUserTasks} from '../../firebaase/firebase.utils';
 import{auth} from '../../firebaase/firebase.utils'
+import {withRouter} from 'react-router-dom';
+
 
 
 class Homepage extends React.Component{
@@ -60,20 +62,21 @@ class Homepage extends React.Component{
     } 
     
     signOut=()=>{
-        auth.signOut().then(function()
-        {
-          console.log("Sign-out successful.")
-        }
-        ).catch(function(error) {
-          console.log('error');              
-        })
-      }
+        auth.signOut().then(function() {
+            console.log('Signout Sucessfull')
+          }).catch(function(error) {
+            console.log(error)
+          });
+    }
+        
 
     render(){
         const{taskName,projectName,startTime,endTime}=this.state
-        const tasks= this.props.userData.tasks        
+        const tasks= this.props.userData.tasks
+        const {currentUser}= this.props 
+
         return(
-            <React.Fragment>
+            currentUser?  <React.Fragment>
              <header className='header'>
                         <div className='signout'  onClick={this.signOut}>Sign Out</div>
              </header>
@@ -120,11 +123,11 @@ class Homepage extends React.Component{
 
             </div>
             
-            </React.Fragment>
+            </React.Fragment>:'loading...'
         )
     }
 
 
 }
 
-export default Homepage
+export default withRouter(Homepage);
