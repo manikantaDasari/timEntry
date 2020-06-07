@@ -1,0 +1,33 @@
+.sign-in{
+   
+    box-sizing: border-box;
+    width: 480px;
+    padding: 10px;
+    margin: auto;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+
+    .buttons{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    input{
+        box-sizing: border-box;
+    }
+
+    .linkTo{
+        color: blue;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .sign-in{
+        width: 366px;
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+}

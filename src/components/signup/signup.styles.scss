@@ -1,0 +1,30 @@
+.sign-up{
+    box-sizing: border-box;
+    width: 480px;
+    padding: 10px;
+    margin: auto;
+    border: 1px solid black;
+
+    .buttons{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    input{
+        box-sizing: border-box;
+    }
+
+    .linkTo{
+        color: blue;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .sign-up{
+        width: 366px;
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+}
